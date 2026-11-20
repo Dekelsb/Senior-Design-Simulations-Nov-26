@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team Bubbles · Underwater VLC Simulation Appendix</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink2: #52514e;
+  --muted: #6e6d68;
+  --grid: #e1e0d9;
+  --link: #1c5cab;
+  --link-bg: #eef4fc;
+  --badge-bg: #efeee9;
+  --warn-bg: #fdf6e7;
+  --warn-border: #e6cf9b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #f0efec;
+    --ink2: #c3c2b7;
+    --muted: #9a9990;
+    --grid: #2c2c2a;
+    --link: #86b6ef;
+    --link-bg: #182738;
+    --badge-bg: #262624;
+    --warn-bg: #241f14;
+    --warn-border: #4d4023;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 20px 64px;
+}
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--link);
+  margin-bottom: 6px;
+}
+h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+.meta {
+  color: var(--ink2);
+  font-size: 15px;
+  margin: 0 0 22px;
+}
+.notice {
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-border);
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 14.5px;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--grid);
+  border-radius: 12px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.card h2 {
+  font-size: 19px;
+  margin: 0;
+  line-height: 1.3;
+}
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--badge-bg);
+  color: var(--ink2);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.card p {
+  margin: 0;
+  color: var(--ink2);
+  font-size: 15px;
+}
+.card ul {
+  margin: 2px 0 6px;
+  padding-left: 20px;
+  color: var(--ink2);
+  font-size: 14.5px;
+}
+.card li { margin-bottom: 3px; }
+.btn {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 4px;
+  background: var(--link);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 9px 16px;
+  border-radius: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  .btn { color: #0b0b0b; }
+}
+.btn:hover { opacity: 0.9; }
+footer {
+  margin-top: 34px;
+  padding-top: 16px;
+  border-top: 1px solid var(--grid);
+  font-size: 13.5px;
+  color: var(--muted);
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Trinity University Senior Design · Preliminary Design Report Appendix</div>
+  <h1>Underwater Visible Light Communication (VLC) — Simulation Archive</h1>
+  <p class="meta">
+    <strong>Team Bubbles:</strong> Heather Nugent, Matthew Miller, Dekel Sentis, Clayton Yeoman ·
+    <strong>Adviser:</strong> Dr. Joshua Schwartz · Fall 2026
+  </p>
+
+  <div class="notice">
+    <strong>Note on scope:</strong> All SNR curves, parametric sweeps, and audio clips below are generated from
+    end-to-end ngspice circuit simulations and analytical underwater optical models (V1–V4). Physical underwater
+    link testing will be performed in Spring 2027 after PCB fabrication and waterproof housing integration.
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <div class="card-top">
+        <h2>1. V4 Parametric Sweep Findings Report</h2>
+        <span class="tag">Full Technical Report · 20 Embedded Plots</span>
+      </div>
+      <p>
+        Complete analysis of roughly 833,000 simulated half-duplex link configurations evaluating LED wavelengths
+        (405–659 nm), photodiodes, optical filters, lenses, water clarity, ambient lighting, and receiver front-end
+        topologies.
+      </p>
+      <ul>
+        <li>Explains the four noise/interference regimes (transmitter noise, receiver noise, shot noise, and lamp hum).</li>
+        <li>Documents both the Hamamatsu S1337-1010BR royal-blue path and the MTD5052W green-LED + condenser-lens path (47.8 dB on-axis at 15 ft).</li>
+        <li>Includes angular misalignment, ambient flicker, and water-clarity sensitivity plots.</li>
+      </ul>
+      <a class="btn" href="findings_report.html">Open V4 Findings Report →</a>
+    </section>
+
+    <section class="card">
+      <div class="card-top">
+        <h2>2. V4 Interactive Configuration Explorer</h2>
+        <span class="tag">Interactive Browser Tool</span>
+      </div>
+      <p>
+        Explore the simulated link trade space directly in your browser. Mix and match LEDs, photodiodes, optical
+        filters, collection optics, water conditions, distance, alignment angle, and ambient lighting to see predicted
+        voice-band SNR (300–3,000 Hz) against the 14 dB target.
+      </p>
+      <a class="btn" href="vlc_v4_explorer.html">Launch V4 Config Explorer →</a>
+    </section>
+
+    <section class="card">
+      <div class="card-top">
+        <h2>3. V3 Simulated Audio Playback Demo</h2>
+        <span class="tag">Interactive Audio Comparison</span>
+      </div>
+      <p>
+        Listen to simulated speech transmitted through the end-to-end ngspice + underwater channel pipeline across
+        design revisions (Original V1, V2 + optical hood, V3 receiver, and V3 transmitter upgrades), transmission
+        distances, and push-to-talk switching transitions.
+      </p>
+      <a class="btn" href="vlc_v3_demo.html">Launch V3 Audio Demo →</a>
+    </section>
+  </div>
+
+  <footer>
+    Generative AI Disclosure: Under team direction, Claude (Anthropic), ChatGPT (OpenAI), and Gemini (Google)
+    assisted with building the simulation scripts, parametric sweep infrastructure, and interactive visualization
+    tools. All engineering parameters derive from manufacturer datasheets, SPICE models, and published pure-water
+    optical attenuation data.
+  </footer>
+</main>
+</body>
+</html>
